@@ -12,15 +12,28 @@ Este es un proyecto académico para la UADE, un paquete que permite la comunicac
 Para instalar el paquete seguí estos pasos:
 1. Ingresá a este enlace https://github.com/matiasfelau/sender-java/releases/tag/UADE, descargá el archivo Squad1CoreSender-Java-V1.0.7z y descomprimilo en la carpeta que prefieras.
 2. Ingresá a este enlace https://maven.apache.org/download.cgi, descargá el archivo apache-maven-3.9.9-bin.zip y descomprimilo en la carpeta que prefieras.
-3. En Windows Search buscá "Editar las variables de entorno del sistema" > Variables de entorno > Variables del sistema > Nueva > Nombre de la variable: MAVEN_HOME, Valor de la variable: ruta al directorio bin del archivo que descomprimiste en el paso anterior (ej: D:\Maven\apache-maven-3.9.9\bin).
-En la misma ventana, buscá entre las Variables del sistema y hace doble click en "Path" > Nuevo > ruta al directorio bin del archivo que descomprimiste en el paso anterior (ej: D:\Maven\apache-maven-3.9.9\bin).
+3. En Windows Search buscá "Editar las variables de entorno del sistema" y seguí estos pasos:
+![Paso 1](images/1.png)
+![Paso 2](images/2.png)
+![Paso 3](images/3.png)
+
+Nombre de la variable: MAVEN_HOME, Valor de la variable: ruta al directorio bin del archivo que descomprimiste en el paso anterior (ej: D:\Maven\apache-maven-3.9.9\bin).
+
+![Paso 4](images/4.png)
+![Paso 5](images/5.png)
+![Paso 6](images/6.png)
+
+Ruta al directorio bin del archivo que descomprimiste en el paso anterior (ej: D:\Maven\apache-maven-3.9.9\bin).
+
+![Paso 7](images/7.png)
+
 4. Abrí Powershell y ejecutá los siguientes comandos:
 ```bash
-mvn install:install-file -Dfile=<ruta del archivo que descomprimiste en el paso 1>/sender-java-1.0.jar -DgroupId="ar.edu.uade" -DartifactId=sender-java -Dversion="1.0" -Dpackaging=jar
+mvn install:install-file -Dfile=<Ruta del archivo que descomprimiste en el primer paso>/sender-java-1.0.jar -DgroupId="ar.edu.uade" -DartifactId=sender-java -Dversion="1.0" -Dpackaging=jar
 
-mvn install:install-file -Dfile=<ruta del archivo que descomprimiste en el paso 1>/sender-java-1.0-javadoc.jar -DgroupId="ar.edu.uade" -DartifactId=sender-java -Dversion="1.0" -Dpackaging=jar -Dclassifier=javadoc
+mvn install:install-file -Dfile=<Ruta del archivo que descomprimiste en el primer paso>/sender-java-1.0-javadoc.jar -DgroupId="ar.edu.uade" -DartifactId=sender-java -Dversion="1.0" -Dpackaging=jar -Dclassifier=javadoc
 
-mvn install:install-file -Dfile=<ruta del archivo que descomprimiste en el paso 1>/sender-java-1.0-sources.jar -DgroupId="ar.edu.uade" -DartifactId=sender-java -Dversion="1.0" -Dpackaging=jar -Dclassifier=sources
+mvn install:install-file -Dfile=<Ruta del archivo que descomprimiste en el primer paso>/sender-java-1.0-sources.jar -DgroupId="ar.edu.uade" -DartifactId=sender-java -Dversion="1.0" -Dpackaging=jar -Dclassifier=sources
 ```
 5. Agregá a tu archivo pom.xml las siguientes dependencias:
 ```xml
