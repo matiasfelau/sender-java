@@ -81,8 +81,6 @@ import ar.edu.uade.*;
 import com.rabbitmq.client.Connection;
 import com.rabbitmq.client.Delivery;
 
-import com.org.example.Model.Usuario;
-
 public class Main {
     public static void main(String[] args) throws Exception {
         Broker broker = new Broker(
