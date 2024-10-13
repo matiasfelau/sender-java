@@ -9,7 +9,7 @@ Este es un proyecto académico para la UADE, un paquete que permite la comunicac
 - [Ejemplo](#ejemplo)
 
 ## Instalación
-Para instalar el paquete seguí estos pasos:
+Para instalar la libreria seguí estos pasos:
 1. Ingresá a este enlace https://github.com/matiasfelau/sender-java/releases/tag/UADE, descargá el archivo Squad1CoreSender-Java-V1.0.7z y descomprimilo en la carpeta que prefieras.
 2. Ingresá a este enlace https://maven.apache.org/download.cgi, descargá el archivo apache-maven-3.9.9-bin.zip y descomprimilo en la carpeta que prefieras.
 3. En Windows Search buscá "Editar las variables de entorno del sistema" y seguí estos pasos:
@@ -27,7 +27,7 @@ Ruta al directorio bin del archivo que descomprimiste en el paso anterior (ej: D
 
 ![Paso 7](images/7.png)
 
-4. Abrí Powershell y ejecutá los siguientes comandos:
+4. Abrí Powershell, en cualquier directorio que no sea el de Maven, y ejecutá los siguientes comandos:
 ```bash
 mvn install:install-file -Dfile=<Ruta del archivo que descomprimiste en el primer paso>/sender-java-1.0.jar -DgroupId="ar.edu.uade" -DartifactId=sender-java -Dversion="1.0" -Dpackaging=jar
 
@@ -61,16 +61,17 @@ Usá el proyecto de la siguiente manera:
 1. Iniciá dos conexiones con el servidor, una será para enviar mensajes y la otra para recibirlos. 
 La conexión te va a pedir especificar un host, un puerto, un usuario y una contraseña. Todos los datos te van a ser dados por el Squad del Core.
 2. Definí una función de callback, o sea lo que va a hacer tu aplicación cada vez que reciba un mensaje. Esto te va a permitir procesarlo.
-Es importante aclarar que los mensajes viajan en formato de bytes[] así que será necesario usar decode.
+Es importante aclarar que los mensajes viajan en formato de bytes[], así que es necesario usar el método convertDelivery.
 3. Iniciá el servicio consumidor dándole una conexión e indicándole cuál es tu módulo, el cual estará restringido por el enum Modules.
 Es importante aclarar que invocar a esta función bloqueará un hilo de procesamiento para estar permanentemente a la escucha.
 4. Por último, podés usar el método publish para enviar mensajes a cualquier módulo válido. También se encuentra restringido por el enum Modules.
 Necesitarás ingresar por parámetro una conexión (distinta a la del servicio consumidor), el mensaje en formato String, el nombre del módulo de origen, el de destino y el caso de uso que genera al mensaje.
 Recomendamos cerrar la conexión usada después de enviar un mensaje, o un lote de ellos, y abrir una nueva cuando vuelva a ser necesaria.
 
-## ACLARACIÓN
-
-Tené en cuenta que la conexión es un objeto del tipo AutoCloseable, por lo que deberías manejar las excepciones e implementar una lógica de reconexión.
+> [!CAUTION]
+> ACLARACIÓN
+> 1. Tené en cuenta que la conexión es un objeto del tipo AutoCloseable, por lo que deberías manejar las excepciones e implementar una lógica de reconexión.
+> 2. Los mensajes pueden ser clases convertidas a un String de formato JSON ó valores sueltos en forma de Plain String. Nuestra recomendación es usar clases, como la vista de ejemplo, para un mejor manejo de la información.
 
 ## Ejemplo
 ```Java
@@ -105,8 +106,12 @@ public class Main {
                 //Los datos enviados desde el módulo de origen se encuentran en el atributo payload del body.
                 String datos = body.getPayload();
 
-                //Los datos enviados desde el módulo de origen pueden convertirse a cualquier clase del modelo.
-                Usuario usuario = Utilities.convertBody(body, Usuario.class);
+                //Los datos enviados desde el módulo de origen pueden convertirse a cualquier clase del modelo, si corresponde.
+                try {
+                    Usuario usuario = Utilities.convertBody(body, Usuario.class);
+                } catch (ConverterException e) {
+                    
+                }
             }
         });
 
@@ -116,7 +121,10 @@ public class Main {
 
         Publisher publisher = new Publisher(String.valueOf(Modules.USUARIO));
 
-        publisher.publish(publisherConnection, "¡Hola, mundo!", Modules.USUARIO, "Prueba");
+        //Convierto un objeto a un String de formato JSON.
+        String mensaje = Utilities.convertClass(usuario);
+
+        publisher.publish(publisherConnection, mensaje, Modules.USUARIO, "Prueba");
 
         broker.endConnection(publisherConnection);
     }
