@@ -119,6 +119,8 @@ public class Main {
 
         Publisher publisher = new Publisher(String.valueOf(Modules.USUARIO));
 
+        Usuario usuario = new Usuario("Matias");
+
         //Convierto un objeto a un String de formato JSON.
         String mensaje = Utilities.convertClass(usuario);
 
