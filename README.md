@@ -126,10 +126,12 @@ public class Main {
             }
         });
 
+        //Comienza a consumir utilizando un hilo secundario
         consumer.consume(consumerConnection, Modules.USUARIO);
 
         Connection publisherConnection = broker.startConnection();
 
+        //Crea la instancia para poder publicar un mensaje
         Publisher publisher = new Publisher(String.valueOf(Modules.USUARIO));
 
         Usuario usuario = new Usuario("Matias");
