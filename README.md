@@ -10,9 +10,9 @@ Este es un proyecto académico para la UADE, un paquete que permite la comunicac
 
 ## Instalación
 Para instalar la libreria seguí estos pasos:
+1. Ingresá ![acá](https://github.com/matiasfelau/sender-java/releases/tag/latest), descargá el archivo Squad1CoreSender-Java-V1.1.7z y descomprimilo en la carpeta que prefieras.
 
 ### Windows
-1. Ingresá ![acá](https://github.com/matiasfelau/sender-java/releases/tag/latest), descargá el archivo Squad1CoreSender-Java-V1.1.7z y descomprimilo en la carpeta que prefieras.
 2. Ingresá a este enlace ![acá](https://maven.apache.org/download.cgi), descargá el archivo apache-maven-3.9.9-bin.zip y descomprimilo en la carpeta que prefieras.
 3. En Windows Search buscá "Editar las variables de entorno del sistema" y seguí estos pasos:
 ![Paso 1](images/1.png)
