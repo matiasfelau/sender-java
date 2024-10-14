@@ -38,7 +38,9 @@ sudo apt install maven
 mvn -version
 ```
 
-4/2. Abrí Powershell/bash, en cualquier directorio que no sea el de Maven, y ejecutá los siguientes comandos:
+### Finalizando en ambos casos
+
+1. Abrí Powershell/bash, en cualquier directorio que no sea el de Maven, y ejecutá los siguientes comandos:
 ```bash
 mvn install:install-file -Dfile=<Ruta del archivo que descomprimiste en el primer paso>/sender-java-1.0.jar -DgroupId="ar.edu.uade" -DartifactId=sender-java -Dversion="1.0" -Dpackaging=jar
 
@@ -46,7 +48,7 @@ mvn install:install-file -Dfile=<Ruta del archivo que descomprimiste en el prime
 
 mvn install:install-file -Dfile=<Ruta del archivo que descomprimiste en el primer paso>/sender-java-1.0-sources.jar -DgroupId="ar.edu.uade" -DartifactId=sender-java -Dversion="1.0" -Dpackaging=jar -Dclassifier=sources
 ```
-5. Agregá a tu archivo pom.xml las siguientes dependencias:
+2. Agregá a tu archivo pom.xml las siguientes dependencias:
 ```xml
 <dependency>
     <groupId>com.rabbitmq</groupId>
