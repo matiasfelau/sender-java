@@ -65,7 +65,7 @@ mvn install:install-file -Dfile=<Ruta del archivo que descomprimiste en el prime
 <dependency>
     <groupId>ar.edu.uade</groupId>
     <artifactId>sender-java</artifactId>
-    <version>1.0</version>
+    <version>1.1</version>
 </dependency>
 ```
 
