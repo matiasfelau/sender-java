@@ -10,6 +10,8 @@ Este es un proyecto académico para la UADE, un paquete que permite la comunicac
 
 ## Instalación
 Para instalar la libreria seguí estos pasos:
+
+### Windows
 1. Ingresá ![acá](https://github.com/matiasfelau/sender-java/releases/tag/latest), descargá el archivo Squad1CoreSender-Java-V1.1.7z y descomprimilo en la carpeta que prefieras.
 2. Ingresá a este enlace ![acá](https://maven.apache.org/download.cgi), descargá el archivo apache-maven-3.9.9-bin.zip y descomprimilo en la carpeta que prefieras.
 3. En Windows Search buscá "Editar las variables de entorno del sistema" y seguí estos pasos:
@@ -27,7 +29,16 @@ Ruta al directorio bin del archivo que descomprimiste en el paso anterior (ej: D
 
 ![Paso 7](images/7.png)
 
-4. Abrí Powershell, en cualquier directorio que no sea el de Maven, y ejecutá los siguientes comandos:
+### Linux
+1. Ejecutá estas instrucciones en bash:
+```bash
+sudo apt update
+sudo apt upgrade
+sudo apt install maven
+mvn -version
+```
+
+4/2. Abrí Powershell/bash, en cualquier directorio que no sea el de Maven, y ejecutá los siguientes comandos:
 ```bash
 mvn install:install-file -Dfile=<Ruta del archivo que descomprimiste en el primer paso>/sender-java-1.0.jar -DgroupId="ar.edu.uade" -DartifactId=sender-java -Dversion="1.0" -Dpackaging=jar
 
