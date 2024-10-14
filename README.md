@@ -42,11 +42,11 @@ mvn -version
 
 1. Abrí Powershell/bash, en cualquier directorio que no sea el de Maven, y ejecutá los siguientes comandos:
 ```bash
-mvn install:install-file -Dfile=<Ruta del archivo que descomprimiste en el primer paso>/sender-java-1.0.jar -DgroupId="ar.edu.uade" -DartifactId=sender-java -Dversion="1.0" -Dpackaging=jar
+mvn install:install-file -Dfile=<Ruta del archivo que descomprimiste en el primer paso>/sender-java-1.1.jar -DgroupId="ar.edu.uade" -DartifactId=sender-java -Dversion="1.1" -Dpackaging=jar
 
-mvn install:install-file -Dfile=<Ruta del archivo que descomprimiste en el primer paso>/sender-java-1.0-javadoc.jar -DgroupId="ar.edu.uade" -DartifactId=sender-java -Dversion="1.0" -Dpackaging=jar -Dclassifier=javadoc
+mvn install:install-file -Dfile=<Ruta del archivo que descomprimiste en el primer paso>/sender-java-1.1-javadoc.jar -DgroupId="ar.edu.uade" -DartifactId=sender-java -Dversion="1.1" -Dpackaging=jar -Dclassifier=javadoc
 
-mvn install:install-file -Dfile=<Ruta del archivo que descomprimiste en el primer paso>/sender-java-1.0-sources.jar -DgroupId="ar.edu.uade" -DartifactId=sender-java -Dversion="1.0" -Dpackaging=jar -Dclassifier=sources
+mvn install:install-file -Dfile=<Ruta del archivo que descomprimiste en el primer paso>/sender-java-1.1-sources.jar -DgroupId="ar.edu.uade" -DartifactId=sender-java -Dversion="1.1" -Dpackaging=jar -Dclassifier=sources
 ```
 2. Agregá a tu archivo pom.xml las siguientes dependencias:
 ```xml
