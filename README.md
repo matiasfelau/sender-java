@@ -1,4 +1,4 @@
-![imagen](https://github.com/user-attachments/assets/5edfdc30-a620-4077-9dcc-17588e5e5304)# sender-java
+# sender-java
 
 ## Descripción
 Este es un proyecto académico para la UADE, un paquete que permite la comunicación entre los distintos módulos a través del Core.
