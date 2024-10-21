@@ -96,7 +96,7 @@ Recomendamos cerrar la conexión usada después de enviar un mensaje, o un lote 
 > 2. Los mensajes pueden ser clases convertidas a un String de formato JSON ó valores sueltos en forma de Plain String. Nuestra recomendación es usar clases, como la vista de ejemplo, para un mejor manejo de la información.
 > 3. Asegurese de utilizar el Type correcto segun su mensaje a enviar. Evite errores para los consumidores.
 
-## Ejemplo
+# Ejemplo
 ```Java
 package org.example;
 
