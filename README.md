@@ -161,7 +161,7 @@ public class Main {
 > [!IMPORTANT]
 > En caso de querer trabajar con Arrays, puede seguir los siguientes elementos:
 
-## Publicar varios mensajes    
+### Publicar varios mensajes    
 ```Java
 ...
 // Inicializo el Publisher
@@ -184,7 +184,7 @@ String mensaje = String.join("/", mensajes);
 publisher.publish(connection, mensaje, Modules.USUARIO, "Prueba");
 ...
 ```
-## Callback refinado...
+### Callback refinado para varios mensajes a recibir...
 ```Java
 ...
 Consumer consumer = new Consumer(new CallbackInterface() {
