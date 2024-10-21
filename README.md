@@ -9,7 +9,7 @@ Este es un proyecto académico para la UADE, un paquete que permite la comunicac
 - [Ejemplo](#ejemplo)
 
 ## Instalación
-Para instalar la libreria seguí estos pasos:
+Para instalar la libreria en Windows o en Linux seguí estos pasos:
 1. Ingresá ![acá](https://github.com/matiasfelau/sender-java/releases/tag/latest), descargá el archivo Squad1CoreSender-Java-V1.1.7z y descomprimilo en la carpeta que prefieras.
 
 ### Windows
@@ -30,7 +30,7 @@ Ruta al directorio bin del archivo que descomprimiste en el paso anterior (ej: D
 ![Paso 7](images/7.png)
 
 ### Linux
-1. Ejecutá estas instrucciones en bash:
+2. Ejecutá estas instrucciones en bash:
 ```bash
 sudo apt update
 sudo apt upgrade
