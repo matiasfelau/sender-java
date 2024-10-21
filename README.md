@@ -148,7 +148,9 @@ public class Main {
         //Convierto un objeto a un String de formato JSON.
         String mensaje = Utilities.convertClass(usuario);
 
-        publisher.publish(publisherConnection, mensaje, Modules.USUARIO, "Prueba");
+        //El token es el JWT que entrega Gestion_Interna
+        //Type presenta 3 variables, String, JSON o Array, utilizado para un mejor manejo del mensaje.
+        publisher.publish(publisherConnection, mensaje, Modules.USUARIO, "Prueba", token, Type.JSON);
 
         broker.endConnection(publisherConnection);
     }
