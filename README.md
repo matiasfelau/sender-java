@@ -1,4 +1,4 @@
-# sender-java
+![imagen](https://github.com/user-attachments/assets/5edfdc30-a620-4077-9dcc-17588e5e5304)# sender-java
 
 ## Descripción
 Este es un proyecto académico para la UADE, un paquete que permite la comunicación entre los distintos módulos a través del Core.
@@ -157,3 +157,58 @@ public class Main {
     }
 }
 ```
+
+> [!IMPORTANT]
+> En caso de querer trabajar con Arrays, puede seguir los siguientes elementos:
+
+## Publicar varios mensajes    
+```Java
+...
+// Inicializo el Publisher
+Publisher publisher = new Publisher(Modules.USUARIO);
+
+// Array de mensajes que voy a enviar
+List<String> mensajes = new ArrayList<>();
+
+// Cargo usuarios en el array como demostración
+for (int i = 0; i < 10; i++) {
+    Usuario usuario = new Usuario(String.valueOf(i));
+    String mensaje = Utilities.convertClass(usuario);
+    mensajes.add(mensaje);
+}
+
+// Convierto el array en un String
+String mensaje = String.join("/", mensajes);
+
+// Lo envío
+publisher.publish(connection, mensaje, Modules.USUARIO, "Prueba");
+...
+```
+## Callback refinado...
+```Java
+...
+Consumer consumer = new Consumer(new CallbackInterface() {
+    @Override
+    public void callback(String consumerTag, Delivery delivery) {
+        try {
+            // Decodifico el delivery
+            Body body = Utilities.convertDelivery(delivery);
+
+            // Consigo el String que contiene al array
+            String mensaje = body.getPayload();
+
+            // Convierto el String a un array real
+            String[] mensajes = mensaje.split("/");
+
+            for (String s : mensajes) {
+                System.out.println(s);
+            }
+
+        } catch (ConverterException e) {
+            throw new RuntimeException(e);
+        }
+    }
+});
+...
+```
+
