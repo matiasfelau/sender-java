@@ -4,9 +4,20 @@
 Este es un proyecto académico para la UADE, un paquete que permite la comunicación entre los distintos módulos a través del Core.
 
 ## Tabla de Contenidos
+- [Changelog](#changelog)
 - [Instalación](#instalación)
 - [Uso](#uso)
 - [Ejemplo](#ejemplo)
+
+## Changelog
+
+### [1.2.1] - 2024-10-22
+- Implementación de métodos para el manejo de Arrays en los mensajes.
+
+### [1.2] - 2024-10-21
+- Implementación de headers:
+    1. token - para permitir el manejo de la autenticación con JWT.
+    2. type - para permitir un mejor manejo de los mensajes al definir el tipo de dato que fue enviado.
 
 ## Instalación
 Para instalar la libreria en Windows o en Linux seguí estos pasos:
@@ -179,7 +190,7 @@ for (int i = 0; i < 10; i++) {
 }
 
 // Convierto el array en un String
-//Uso el caracter de control \u0007 para separar elementos.
+// Uso el carácter de control \u0007 para separar elementos. Si en Github apareciese un carácter extra al de este comentario, omitilo.
 String mensaje = String.join("\u0007", mensajes);
 
 // Lo envío
@@ -200,7 +211,7 @@ Consumer consumer = new Consumer(new CallbackInterface() {
             String mensaje = body.getPayload();
 
             // Convierto el String a un array real
-            //Uso el caracter de control \u0007 para separar elementos.
+            // Uso el caracter de control \\u0007 para separar elementos. Si en Github apareciese un carácter extra al de este comentario, omitilo.
             String[] mensajes = mensaje.split("\\u0007");
 
             for (String s : mensajes) {
