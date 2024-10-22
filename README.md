@@ -190,8 +190,8 @@ for (int i = 0; i < 10; i++) {
 }
 
 // Convierto el array en un String
-// Uso el carácter de control \u0007 para separar elementos. Si en Github apareciese un carácter extra al de este comentario, omitilo.
-String mensaje = String.join("\u0007", mensajes);
+// Uso --!--##-->>DELIMITER<<--##--!-- como delimitador
+String mensaje = String.join("--!--##-->>DELIMITER<<--##--!--", mensajes);
 
 // Lo envío
 publisher.publish(connection, mensaje, Modules.USUARIO, "Prueba");
@@ -211,8 +211,7 @@ Consumer consumer = new Consumer(new CallbackInterface() {
             String mensaje = body.getPayload();
 
             // Convierto el String a un array real
-            // Uso el caracter de control \\u0007 para separar elementos. Si en Github apareciese un carácter extra al de este comentario, omitilo.
-            String[] mensajes = mensaje.split("\\u0007");
+            String[] mensajes = mensaje.split("--!--##-->>DELIMITER<<--##--!--");
 
             for (String s : mensajes) {
                 System.out.println(s);
