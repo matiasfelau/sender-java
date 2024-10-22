@@ -160,7 +160,7 @@ public class Main {
 
 > [!IMPORTANT]
 > En caso de querer trabajar con Arrays, puede seguir los siguientes elementos:
->     Para versiones mayores a la 1.2.1 se pueden usar los métodos convertArray y convertString de Utilities
+> Para versiones mayores a la 1.2.1 se pueden usar los métodos convertArray y convertString de Utilities y aconsejamos su uso.
 
 ### Publicar varios mensajes    
 ```Java
