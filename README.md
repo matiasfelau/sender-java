@@ -160,6 +160,7 @@ public class Main {
 
 > [!IMPORTANT]
 > En caso de querer trabajar con Arrays, puede seguir los siguientes elementos:
+>     Para versiones mayores a la 1.2.1 se pueden usar los métodos convertArray y convertString de Utilities
 
 ### Publicar varios mensajes    
 ```Java
@@ -178,7 +179,8 @@ for (int i = 0; i < 10; i++) {
 }
 
 // Convierto el array en un String
-String mensaje = String.join("/", mensajes);
+//Uso el caracter de control \u0007 para separar elementos.
+String mensaje = String.join("\u0007", mensajes);
 
 // Lo envío
 publisher.publish(connection, mensaje, Modules.USUARIO, "Prueba");
@@ -198,7 +200,8 @@ Consumer consumer = new Consumer(new CallbackInterface() {
             String mensaje = body.getPayload();
 
             // Convierto el String a un array real
-            String[] mensajes = mensaje.split("/");
+            //Uso el caracter de control \u0007 para separar elementos.
+            String[] mensajes = mensaje.split("\\u0007");
 
             for (String s : mensajes) {
                 System.out.println(s);
