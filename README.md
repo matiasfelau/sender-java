@@ -21,11 +21,10 @@ Este es un proyecto académico para la UADE, un paquete que permite la comunicac
 
 ## Instalación
 Para instalar la libreria en Windows o en Linux seguí estos pasos:
-1. Ingresá ![aqui](https://github.com/matiasfelau/sender-java/releases/tag/latest), descargá el archivo Squad1CoreSender-Java-V1.1.7z y descomprimilo en la carpeta que prefieras.
 
-### Windows (Maven)
-2. Ingresá a este enlace https://maven.apache.org/download.cgi, descargá el archivo apache-maven-3.9.9-bin.zip y descomprimilo en la carpeta que prefieras.
-3. En Windows Search buscá "Editar las variables de entorno del sistema" y seguí estos pasos:
+### Windows
+1. Ingresá a este enlace https://maven.apache.org/download.cgi, descargá el archivo apache-maven-3.9.9-bin.zip y descomprimilo en la carpeta que prefieras.
+2. En Windows Search buscá "Editar las variables de entorno del sistema" y seguí estos pasos:
 ![Paso 1](images/1.png)
 ![Paso 2](images/2.png)
 ![Paso 3](images/3.png)
@@ -40,8 +39,8 @@ Ruta al directorio bin del archivo que descomprimiste en el paso anterior (ej: D
 
 ![Paso 7](images/7.png)
 
-### Linux (Maven)
-2. Ejecutá estas instrucciones en bash:
+### Linux
+1. Ejecutá estas instrucciones en bash:
 ```bash
 sudo apt update
 sudo apt upgrade
@@ -51,15 +50,7 @@ mvn -version
 
 ### Finalizando en ambos casos (Maven)
 
-1. Abrí Powershell/bash, en cualquier directorio que no sea el de Maven, y ejecutá los siguientes comandos:
-```bash
-mvn install:install-file -Dfile=<Ruta del archivo que descomprimiste en el primer paso>/sender-java-1.1.jar -DgroupId="ar.edu.uade" -DartifactId=sender-java -Dversion="1.1" -Dpackaging=jar
-
-mvn install:install-file -Dfile=<Ruta del archivo que descomprimiste en el primer paso>/sender-java-1.1-javadoc.jar -DgroupId="ar.edu.uade" -DartifactId=sender-java -Dversion="1.1" -Dpackaging=jar -Dclassifier=javadoc
-
-mvn install:install-file -Dfile=<Ruta del archivo que descomprimiste en el primer paso>/sender-java-1.1-sources.jar -DgroupId="ar.edu.uade" -DartifactId=sender-java -Dversion="1.1" -Dpackaging=jar -Dclassifier=sources
-```
-2. Agregá a tu archivo pom.xml las siguientes dependencias:
+- Agregá a tu archivo pom.xml las siguientes dependencias:
 ```xml
 <dependency>
     <groupId>com.rabbitmq</groupId>
@@ -74,19 +65,23 @@ mvn install:install-file -Dfile=<Ruta del archivo que descomprimiste en el prime
 </dependency>
 
 <dependency>
-    <groupId>ar.edu.uade</groupId>
+    <groupId>io.github.matiasfelau</groupId>
     <artifactId>sender-java</artifactId>
-    <version>1.1</version>
+    <version>1.2.1</version>
 </dependency>
 ```
 
 ### Finalizando en ambos casos (Gradle)
 
 Agrega las siguientes dependencias a tu archivo build.gradle:
-```bash
-    implementation files('<Ruta del archivo que descomprimiste en el primer paso>/sender-java-1.1.jar')
-    implementation files('<Ruta del archivo que descomprimiste en el primer paso>/sender-java-1.1-javadoc.jar')
-    implementation files('<Ruta del archivo que descomprimiste en el primer paso>/sender-java-1.1-sources.jar')
+```.gradle
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'io.github.matiasfelau:sender-java:1.2.1'
+}
 ```
 
 ## Uso
