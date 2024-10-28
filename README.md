@@ -11,6 +11,9 @@ Este es un proyecto académico para la UADE, un paquete que permite la comunicac
 
 ## Changelog
 
+### [1.2.3] - 2024-10-28
+- Modificación del JSON para incluir el header "target" que permita identificar el tipo de objetos que se transmiten en un mensaje del tipo Array.
+
 ### [1.2.2] - 2024-10-28
 - Implementación de métodos para la conversión de cada elemento de un array entrante a una clase objetivo.
 - Mensajes de aviso del flujo del programa.
