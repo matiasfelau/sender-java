@@ -11,6 +11,10 @@ Este es un proyecto académico para la UADE, un paquete que permite la comunicac
 
 ## Changelog
 
+### [1.2.2] - 2024-10-28
+- Implementación de métodos para la conversión de cada elemento de un array entrante a una clase objetivo.
+- Mensajes de aviso del flujo del programa.
+
 ### [1.2.1] - 2024-10-22
 - Implementación de métodos para el manejo de Arrays en los mensajes.
 
