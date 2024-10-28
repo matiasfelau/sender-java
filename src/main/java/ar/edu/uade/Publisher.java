@@ -14,21 +14,22 @@ public class Publisher implements PublisherInterface{
 
     /**
      * Envía un mensaje o una clase pasada a través de un toString() a cualquier módulo del enum Modules.
-     * @param connection Conexion con el Core obtenida con la función Broker.startConnection().
+     * @param connection Conexión con el Core obtenida con la función Broker.startConnection().
      * @param message String que se enviará al módulo de destino.
      * @param destination Módulo destino al que se enviará el mensaje. Debe ser un módulo válido del enum Modules.
      * @param use_case Caso de uso que generó el mensaje.
      * @param token JWT
      * @param type Tipo del dato que se envio (String, JSON o Array)
+     * @param target La clase de objetos que se contienen dentro de un Array si corresponde. De otra forma, puede ser nulo o vacío.
      * @see Modules
      */
-    public void publish(Connection connection, String message, Modules destination, String use_case, String token, Types type) {
+    public void publish(Connection connection, String message, Modules destination, String use_case, String token, Types type, String target) {
         try {
             String realDestination = String.valueOf(destination).toLowerCase();
             String realType = String.valueOf(type).toLowerCase();
             String realOrigin = String.valueOf(origin).toLowerCase();
             Gson gson = new Gson();
-            Body payload = new Body(realOrigin, realDestination, use_case, message, "0", token, realType);
+            Body payload = new Body(realOrigin, realDestination, use_case, message, "0", token, realType, target);
             String jsonString = gson.toJson(payload);
             Channel channel = connection.createChannel();
             channel.queueDeclare("core", true, false, false, null);

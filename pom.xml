@@ -6,7 +6,7 @@
 
     <groupId>io.github.matiasfelau</groupId>
     <artifactId>sender-java</artifactId>
-    <version>1.2.2</version>
+    <version>1.2.3</version>
 
     <name>Sender Java</name>
     <description>Proyecto para enviar mensajes usando RabbitMQ</description>

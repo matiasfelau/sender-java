@@ -19,8 +19,9 @@ public class Body {
     private String status;
     private String token;
     private String type;
+    private String target;
 
-    public Body(String origin, String destination, String useCase, String payload, String status, String token, String type) {
+    public Body(String origin, String destination, String useCase, String payload, String status, String token, String type, String target) {
         this.origin = origin;
         this.destination = destination;
         this.useCase = useCase;
@@ -28,6 +29,7 @@ public class Body {
         this.status = status;
         this.token = token;
         this.type = type;
+        this.target = target;
     }
 
     public String getOrigin() {
@@ -84,5 +86,13 @@ public class Body {
 
     public void setType(String type) {
         this.type = type;
+    }
+
+    public String getTarget() {
+        return target;
+    }
+
+    public void setTarget(String target) {
+        this.target = target;
     }
 }
