@@ -17,13 +17,17 @@ public class Body {
     private String useCase;
     private String payload;
     private String status;
+    private String token;
+    private String type;
 
-    public Body(String origin, String destination, String useCase, String payload, String status) {
+    public Body(String origin, String destination, String useCase, String payload, String status, String token, String type) {
         this.origin = origin;
         this.destination = destination;
         this.useCase = useCase;
         this.payload = payload;
         this.status = status;
+        this.token = token;
+        this.type = type;
     }
 
     public String getOrigin() {
@@ -64,5 +68,21 @@ public class Body {
 
     public void setStatus(String status) {
         this.status = status;
+    }
+
+    public String getToken() {
+        return token;
+    }
+
+    public void setToken(String token) {
+        this.token = token;
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
     }
 }

@@ -6,6 +6,7 @@ import com.rabbitmq.client.DeliverCallback;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.concurrent.CountDownLatch;
 
 /**
  * Objeto que inicia un hilo consumidor
@@ -50,6 +51,8 @@ public class Consumer implements ConsumerInterface {
             };
 
             channel.basicConsume(realOrigin, true, deliverCallback, consumerTag -> {});
+
+            System.out.println(String.format("Esperando mensajes de %s", realOrigin));
 
         } catch (Exception e) {
             System.out.println("Error in CoreSender.Consumer.consume(): " + e.getMessage());

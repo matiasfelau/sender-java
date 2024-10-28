@@ -4,11 +4,42 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>ar.edu.uade</groupId>
+    <groupId>io.github.matiasfelau</groupId>
     <artifactId>sender-java</artifactId>
-    <version>1.0</version>
+    <version>1.2.2</version>
+
     <name>Sender Java</name>
     <description>Proyecto para enviar mensajes usando RabbitMQ</description>
+    <url>https://github.com/matiasfelau/sender-java</url>
+
+    <licenses>
+        <license>
+            <name>The Apache License, Version 2.0</name>
+            <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+        </license>
+    </licenses>
+
+    <developers>
+        <developer>
+            <name>Matias Felau</name>
+            <email>matiasfelau@gmail.com</email>
+            <organization>UADE</organization>
+            <organizationUrl>https://www.webcampus.uade.edu.ar</organizationUrl>
+        </developer>
+
+        <developer>
+            <name>Maximo Martin</name>
+            <email>maxmartin@gmail.com</email>
+            <organization>UADE</organization>
+            <organizationUrl>https://www.webcampus.uade.edu.ar/</organizationUrl>
+        </developer>
+    </developers>
+
+    <scm>
+        <connection>scm:git:git://github.com/matiasfelau/sender-java.git</connection>
+        <developerConnection>scm:git:ssh://github.com:matiasfelau/sender-java.git</developerConnection>
+        <url>http://github.com/matiasfelau/sender-java/tree/master</url>
+    </scm>
 
     <properties>
         <maven.compiler.source>17</maven.compiler.source>
@@ -33,10 +64,26 @@
             <artifactId>maven-shade-plugin</artifactId>
             <version>3.6.0</version>
         </dependency>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.13.2</version>
+            <scope>test</scope>
+        </dependency>
     </dependencies>
 
     <build>
         <plugins>
+
+            <plugin>
+                <groupId>org.sonatype.central</groupId>
+                <artifactId>central-publishing-maven-plugin</artifactId>
+                <version>0.5.0</version>
+                <extensions>true</extensions>
+                <configuration>
+                    <publishingServerId>central</publishingServerId>
+                </configuration>
+            </plugin>
 
             <!-- Plugin para generar Javadocs -->
             <plugin>
@@ -63,6 +110,21 @@
                         <id>attach-sources</id>
                         <goals>
                             <goal>jar</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-gpg-plugin</artifactId>
+                <version>1.6</version>
+                <executions>
+                    <execution>
+                        <id>sign-artifacts</id>
+                        <phase>verify</phase>
+                        <goals>
+                            <goal>sign</goal>
                         </goals>
                     </execution>
                 </executions>
