@@ -7,5 +7,5 @@ import com.rabbitmq.client.Connection;
 import java.io.IOException;
 
 public interface PublisherInterface {
-    void publish(Connection connection, String message, Modules destination, String use_case, String token, Types type, String target);
+    void publish(Connection connection, String message, Modules destination, String use_case, String token, Types type, String target, String status);
 }
