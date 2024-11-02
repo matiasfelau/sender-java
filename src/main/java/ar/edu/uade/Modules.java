@@ -7,5 +7,6 @@ public enum Modules {
     E_COMMERCE,
     GESTION_FINANCIERA,
     GESTION_INTERNA,
-    USUARIO
+    USUARIO,
+    AUTENTICACION
 }

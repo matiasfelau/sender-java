@@ -93,6 +93,7 @@ public class Utilities {
         } catch (Exception e) {
             System.out.println("Error in CoreSender.Utilities.convertString(): " + e.getMessage());
             throw new ConverterException("No se pudo convertir el mensaje.");
+
         }
     }
 
