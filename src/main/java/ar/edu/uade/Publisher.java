@@ -23,13 +23,13 @@ public class Publisher implements PublisherInterface{
      * @param target La clase de objetos que se contienen dentro de un Array si corresponde. De otra forma, puede ser nulo o vacío.
      * @see Modules
      */
-    public void publish(Connection connection, String message, Modules destination, String use_case, String token, Types type, String target, String status) {
+    public void publish(Connection connection, String message, Modules destination, String use_case, String token, Types type, String target, String status, String user) {
         try {
             String realDestination = String.valueOf(destination).toLowerCase();
             String realType = String.valueOf(type).toLowerCase();
             String realOrigin = String.valueOf(origin).toLowerCase();
             Gson gson = new Gson();
-            Body payload = new Body(realOrigin, realDestination, use_case, message, status, token, realType, target);
+            Body payload = new Body(realOrigin, realDestination, use_case, message, status, token, realType, target, user);
             String jsonString = gson.toJson(payload);
             Channel channel = connection.createChannel();
             channel.queueDeclare("core", true, false, false, null);
