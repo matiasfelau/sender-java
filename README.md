@@ -226,4 +226,48 @@ Consumer consumer = new Consumer(new CallbackInterface() {
 });
 ...
 ```
+> [!IMPORTANT]
+> El metodo para la autencacion es:
+```Java
 
+public class Main {
+    public static void main(String[] args) {
+        Broker broker = new Broker(
+                "3.142.225.39",
+                5672,
+                "admin",
+                "59482*M97&!@3@%$2$r@");
+
+        Connection connection;
+
+        try {
+
+            connection = broker.startConnection();
+
+        } catch (Exception e) {
+
+            throw new RuntimeException(e);
+
+        }
+
+        Authenticator authenticator = new Authenticator(Modules.USUARIO);
+
+        String response;
+        
+        String json = "ejemplo";
+
+        try {
+
+            response = authenticator.authenticate(connection, json);
+
+        } catch (Exception e) {
+
+            throw new RuntimeException(e);
+
+        }
+
+        broker.endConnection(connection);
+
+    }
+}
+```
