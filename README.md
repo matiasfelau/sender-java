@@ -164,7 +164,7 @@ public class Main {
 
         //El token es el JWT que entrega Gestion_Interna
         //Types presenta 3 variables, String, JSON o Array, utilizado para un mejor manejo del mensaje.
-        publisher.publish(publisherConnection, mensaje, Modules.USUARIO, "Prueba", token, Types.JSON);
+        publisher.publish(publisherConnection, mensaje, Modules.USUARIO, "Prueba", token, Types.JSON, target, status, user);
 
         broker.endConnection(publisherConnection);
     }
