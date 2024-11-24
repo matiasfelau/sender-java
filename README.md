@@ -233,7 +233,7 @@ Consumer consumer = new Consumer(new CallbackInterface() {
 public class Main {
     public static void main(String[] args) {
         Broker broker = new Broker(
-                "3.141.117.124 ,
+                "3.141.117.124",
                 5672,
                 "admin",
                 "59482*M97&!@3@%$2$r@");
